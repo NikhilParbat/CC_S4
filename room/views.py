@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from .serializers import RoomSerializer, MessageSerializer
 from .models import Room, Message
@@ -33,6 +34,22 @@ def new_message(request, room_slug):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['POST'])
+def join_room(request):
+    # Get the room slug from the request data
+    slug = request.data.get('slug')
+
+    # Retrieve the room object from the database
+    try:
+        room = Room.objects.get(slug=slug)
+    except Room.DoesNotExist:
+        raise NotFound("Room not found.")
+
+    # Logic to join the room (you can implement this as needed)
+
+    # Return a response indicating success
+    serializer = RoomSerializer(room)
+    return Response(serializer.data['name'])
 
 @api_view(['POST'])
 def room_create(request):
@@ -42,4 +59,5 @@ def room_create(request):
         return Response(serializer.data)
     else:
         return Response(serializer.errors)
+    
     
