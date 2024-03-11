@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-50)8(-+1%e!s(yu5#f!y7q#fcmj8#*k4c=g_tx%qb5v1sch4=s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -75,13 +75,23 @@ WSGI_APPLICATION = 'CC_S4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'pwgquhvs',
+       'USER': 'pwgquhvs',
+       'PASSWORD': '40190V0BXHsMxra3VuMMTM1C521dAfU5',
+       'HOST': 'floppy.db.elephantsql.com',
+       'PORT': '5432',
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
