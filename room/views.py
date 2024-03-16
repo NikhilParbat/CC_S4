@@ -35,7 +35,7 @@ def new_message(request, room_slug):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
-def join_room(request):
+def join_room(request, slug):
     # Get the room slug from the request data
     slug = request.data.get('slug')
 
