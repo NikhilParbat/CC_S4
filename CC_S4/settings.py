@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'CC_S4.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'pwgquhvs',
-       'USER': 'pwgquhvs',
-       'PASSWORD': '40190V0BXHsMxra3VuMMTM1C521dAfU5',
-       'HOST': 'floppy.db.elephantsql.com',
+       'NAME': 'xflygjar',
+       'USER': 'xflygjar',
+       'PASSWORD': '9BSo-3NuRvHT4WESw5v49on5LRiGkHrL',
+       'HOST': 'rain.db.elephantsql.com',
        'PORT': '5432',
    }
 }
