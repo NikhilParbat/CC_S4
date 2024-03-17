@@ -9,4 +9,4 @@ class RoomSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ['id', 'room', 'user', 'content', 'date_added']
+        fields = ['id', 'room', 'content', 'date_added']
