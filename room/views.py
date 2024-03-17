@@ -30,12 +30,12 @@ def new_message(request, room_slug):
     if request.method == 'POST':
         serializer = MessageSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(room=room, user=request.user)
+            serializer.save(room=room)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
-def join_room(request):
+def join_room(request, slug):
     # Get the room slug from the request data
     slug = request.data.get('slug')
 
